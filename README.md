@@ -1,3 +1,58 @@
+# Pterodactyl Bot Hosting Platform
+
+A full-stack Next.js 15 application that provides free Discord bot hosting through Pterodactyl panel integration.
+
+## Features
+
+- Discord OAuth2 authentication
+- Automatic user and server provisioning on Pterodactyl
+- Clean dashboard interface
+- Free tier bot hosting (200MB RAM, 500MB storage)
+
+## Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Configure environment variables in `.env.local`:
+   ```env
+   DISCORD_CLIENT_ID=your-discord-client-id
+   DISCORD_CLIENT_SECRET=your-discord-client-secret
+   DISCORD_REDIRECT_URI=http://localhost:3000/api/auth/discord/callback
+   PTERO_API_KEY=your-pterodactyl-application-api-key
+   PTERO_PANEL_URL=https://your-panel-domain.com
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Discord OAuth Setup
+
+1. Go to https://discord.com/developers/applications
+2. Create a new application
+3. Go to OAuth2 section
+4. Add redirect URI: `http://localhost:3000/api/auth/discord/callback`
+5. Copy Client ID and Client Secret to your `.env.local`
+
+## Pterodactyl API Setup
+
+1. Login to your Pterodactyl panel as admin
+2. Go to Application API section
+3. Create a new API key with full permissions
+4. Copy the key to your `.env.local`
+
+## Deployment
+
+This app can be deployed to Vercel or any Node.js hosting platform. Make sure to update the `DISCORD_REDIRECT_URI` environment variable to match your production domain.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
